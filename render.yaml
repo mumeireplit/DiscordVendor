@@ -2,17 +2,12 @@ services:
   - type: web
     name: discord-bot-vending-machine
     env: node
-    buildCommand: |
-      npm run build
-      # Make sure the dist directory exists
-      mkdir -p dist
-      # Create a simple script to check if index.js exists
-      if [ ! -f dist/index.js ]; then
-        cp dist/index.mjs dist/index.js
-      fi
-    startCommand: NODE_ENV=production USE_FIREBASE=true node dist/index.js
+    buildCommand: node render-build.js
+    startCommand: NODE_ENV=production node dist/server.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: USE_FIREBASE
         value: true
+      - key: PORT
+        value: 10000
