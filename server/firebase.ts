@@ -9,15 +9,15 @@ import {
   BotSettings, InsertBotSettings 
 } from '@shared/schema';
 
-// Firebase設定
-// 環境変数から取得
+// Firebase設定 - ハードコード値を使用
 const firebaseConfig = {
-  apiKey: process.env.VITE_FIREBASE_API_KEY,
-  authDomain: `${process.env.VITE_FIREBASE_PROJECT_ID}.firebaseapp.com`,
-  projectId: process.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: `${process.env.VITE_FIREBASE_PROJECT_ID}.appspot.com`,
-  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "",
-  appId: process.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyC1mnXL-vofyL10NPsWH86EAUs-B6APVek",
+  authDomain: "vending-b7172.firebaseapp.com",
+  projectId: "vending-b7172",
+  storageBucket: "vending-b7172.firebasestorage.app",
+  messagingSenderId: "207956683496",
+  appId: "1:207956683496:web:93dff9d97b4da303fa375d",
+  measurementId: "G-EVXS44NVHC"
 };
 
 // Firebase初期化

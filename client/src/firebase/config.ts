@@ -2,13 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: `${import.meta.env.VITE_FIREBASE_PROJECT_ID}.firebaseapp.com`,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: `${import.meta.env.VITE_FIREBASE_PROJECT_ID}.appspot.com`,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyC1mnXL-vofyL10NPsWH86EAUs-B6APVek",
+  authDomain: "vending-b7172.firebaseapp.com",
+  projectId: "vending-b7172",
+  storageBucket: "vending-b7172.firebasestorage.app",
+  messagingSenderId: "207956683496",
+  appId: "1:207956683496:web:93dff9d97b4da303fa375d",
+  measurementId: "G-EVXS44NVHC"
 };
 
 // Initialize Firebase
