@@ -10,7 +10,15 @@ services:
       if [ ! -f dist/index.js ]; then
         cp dist/index.mjs dist/index.js
       fi
-    startCommand: NODE_ENV=production node dist/index.js
+    startCommand: NODE_ENV=production USE_FIREBASE=true node dist/index.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: USE_FIREBASE
+        value: true
+      - key: VITE_FIREBASE_API_KEY
+        sync: false
+      - key: VITE_FIREBASE_PROJECT_ID
+        sync: false
+      - key: VITE_FIREBASE_APP_ID
+        sync: false
