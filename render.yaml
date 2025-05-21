@@ -1,29 +1,16 @@
 services:
   - type: web
-    name: discord-vending-bot
+    name: discord-bot-vending-machine
     env: node
-    buildCommand: ./build.sh
-    startCommand: node dist/install-modules.js && npm start
-    healthCheckPath: /api/health
+    buildCommand: |
+      npm run build
+      # Make sure the dist directory exists
+      mkdir -p dist
+      # Create a simple script to check if index.js exists
+      if [ ! -f dist/index.js ]; then
+        cp dist/index.mjs dist/index.js
+      fi
+    startCommand: NODE_ENV=production node dist/index.js
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
-      - key: USE_FIREBASE
-        value: true
-      - key: FIREBASE_API_KEY
-        value: "AIzaSyC1mnXL-vofyL10NPsWH86EAUs-B6APVek"
-      - key: FIREBASE_AUTH_DOMAIN
-        value: "vending-b7172.firebaseapp.com"
-      - key: FIREBASE_PROJECT_ID
-        value: "vending-b7172"
-      - key: FIREBASE_STORAGE_BUCKET
-        value: "vending-b7172.firebasestorage.app"
-      - key: FIREBASE_MESSAGING_SENDER_ID
-        value: "207956683496"
-      - key: FIREBASE_APP_ID
-        value: "1:207956683496:web:93dff9d97b4da303fa375d"
-      - key: DISCORD_BOT_TOKEN
-        sync: false # このフラグはRenderダッシュボードでの手動設定が必要なことを示します
-    autoDeploy: true # GitHubからの自動デプロイを有効化
