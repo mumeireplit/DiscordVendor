@@ -1,0 +1,11 @@
+{
+  "name": "discord-bot-vending-machine",
+  "type": "module",
+  "scripts": {
+    "start": "node render-simple.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase": "^10.9.0"
+  }
+}
