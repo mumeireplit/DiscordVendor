@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: discord-bot-vending-machine
+    env: node
+    buildCommand: node build-production.js
+    startCommand: node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: USE_FIREBASE
+        value: true
+      - key: PORT
+        value: 10000
